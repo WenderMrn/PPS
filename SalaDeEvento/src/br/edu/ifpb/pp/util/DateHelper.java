@@ -17,5 +17,17 @@ public class DateHelper {
 	     }
 		return c;
 	}
+	
+	public static Calendar stringToDate(String data, String formato){
+		Calendar c = null;
+		try{
+	        Date dataFormatada = new SimpleDateFormat(formato).parse(data);
+	        c = Calendar.getInstance();
+	        c.setTime(dataFormatada);
+	     }catch(Exception e){
+	            e.printStackTrace();
+	     }
+		return c;
+	}
 
 }
