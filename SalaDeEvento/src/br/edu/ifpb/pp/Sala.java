@@ -7,7 +7,25 @@ public abstract class Sala {
 	private Evento evento;
 	
 	//********* Construtor *********//
+	
+	
 	public Sala() {
+	}
+	
+	public Sala(int id, int capacidade, String codigo, Evento evento) {
+		super();
+		this.id = id;
+		this.capacidade = capacidade;
+		this.codigo = codigo;
+		this.evento = evento;
+	}
+
+	public void alocarEvento(Evento e){
+		this.evento = e;
+	}
+	
+	public void desalocarEvento(){
+		this.evento = null;
 	}
 	
 	// ********* Gets e Sets *********//
