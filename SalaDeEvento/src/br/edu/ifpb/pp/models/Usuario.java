@@ -48,6 +48,16 @@ public class Usuario {
 		this.eventos.remove(obj);
 	}
 	
+	public boolean removerEvento(String nome){
+		Evento e = localizarEventoNome(nome);
+		if(e != null){
+			this.eventos.remove(e);
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 	public Evento localizarEventoNome(String nome){
 		/* O usu�rio pode localizar um evento escalonado atrav�s do nome, contato, data etc.*/
 		Evento e= null;

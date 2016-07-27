@@ -60,7 +60,15 @@ public class AplicacaoConsole {
 				System.out.println("Evento adicionado!");
 				break;
 			case 7:
-				
+				System.out.println("Informe o nome do evento para ser removido: ");
+				String nomeEvento = teclado.nextLine();
+				Evento evento = usuario.localizarEventoNome(nomeEvento);
+				if(evento != null){
+					usuario.removerEvento(nomeEvento);
+					System.out.println("Removido com sucesso!");
+				}else{
+					System.out.println("Evento não encontrado!");
+				}
 			break;
 			default:
 				break;
