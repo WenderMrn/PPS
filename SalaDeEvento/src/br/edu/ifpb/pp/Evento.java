@@ -1,20 +1,21 @@
 package br.edu.ifpb.pp;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class Evento {
 	
 	private int id;
 	private String nome;
-	private Date dataInicio;
-	private Date dataFim;
+	private Calendar dataInicio;
+	private Calendar dataFim;
 	private String nomeContato;
 	private int numRepeticoes;
 	private boolean isRepetitivo;
 	
 	//********* Construtor *********//
 	
-	public Evento(int id, String nome, Date dataInicio, Date dataFim, String nomeContato, int numRepeticoes,
+	public Evento(int id, String nome, Calendar dataInicio, Calendar dataFim, String nomeContato, int numRepeticoes,
 			boolean isRepetitivo) {
 		super();
 		this.id = id;
@@ -39,16 +40,16 @@ public class Evento {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Date getDataInicio() {
+	public Calendar getDataInicio() {
 		return dataInicio;
 	}
-	public void setDataInicio(Date dataInicio) {
+	public void setDataInicio(Calendar dataInicio) {
 		this.dataInicio = dataInicio;
 	}
-	public Date getDataFim() {
+	public Calendar getDataFim() {
 		return dataFim;
 	}
-	public void setDataFim(Date dataFim) {
+	public void setDataFim(Calendar dataFim) {
 		this.dataFim = dataFim;
 	}
 	public String getNomeContato() {

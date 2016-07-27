@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Usuario {
-	
+	private String nome;
 	private List<Evento> eventos;
 	private List<Sala> salas;
 	
@@ -18,6 +18,28 @@ public class Usuario {
 		this.salas = new ArrayList<Sala>();
 	}
 	
+	public Usuario(String nome) {
+		super();
+		this.nome = nome;
+	}
+
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public List<Sala> getSalas() {
+		return salas;
+	}
+
+	public void setSalas(List<Sala> salas) {
+		this.salas = salas;
+	}
+
 	public void adicionarEventos(Evento obj){
 		this.eventos.add(obj);
 	}
@@ -48,20 +70,18 @@ public class Usuario {
 		}
 		return e;
 	}
-	public Evento localizarEventoDataInicio(Date data){
+	public Evento localizarEventoDataInicio(Calendar data){
 		/* O usu�rio pode localizar um evento escalonado atrav�s do nome, contato, data etc.*/
 		Evento e= null;
 		
-		Calendar dataConsultada = Calendar.getInstance();
-		dataConsultada.setTime(data);
+		Calendar dataConsultada = data;
 		dataConsultada.set(Calendar.HOUR,0);
 		dataConsultada.set(Calendar.MINUTE,0);
 		dataConsultada.set(Calendar.SECOND,0);
 		
 		for (Evento evento : eventos) {
 			
-			Calendar dataCorrente = Calendar.getInstance();
-			dataCorrente.setTime(evento.getDataInicio());
+			Calendar dataCorrente = evento.getDataInicio();
 			dataCorrente.set(Calendar.HOUR,0);
 			dataCorrente.set(Calendar.MINUTE,0);
 			dataCorrente.set(Calendar.SECOND,0);
@@ -73,20 +93,18 @@ public class Usuario {
 		}
 		return e;
 	}
-	public Evento localizarEventoDataFim(Date data){
+	public Evento localizarEventoDataFim(Calendar data){
 		/* O usu�rio pode localizar um evento escalonado atrav�s do nome, contato, data etc.*/
 		Evento e= null;
 		
-		Calendar dataConsultada = Calendar.getInstance();
-		dataConsultada.setTime(data);
+		Calendar dataConsultada = data;
 		dataConsultada.set(Calendar.HOUR,0);
 		dataConsultada.set(Calendar.MINUTE,0);
 		dataConsultada.set(Calendar.SECOND,0);
 		
 		for (Evento evento : eventos) {
 			
-			Calendar dataCorrente = Calendar.getInstance();
-			dataCorrente.setTime(evento.getDataFim());
+			Calendar dataCorrente = evento.getDataFim();
 			dataCorrente.set(Calendar.HOUR,0);
 			dataCorrente.set(Calendar.MINUTE,0);
 			dataCorrente.set(Calendar.SECOND,0);

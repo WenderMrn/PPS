@@ -6,10 +6,10 @@ public class Conferencia extends Sala {
 		super();
 		
 	}
-	public String getApelidio() {
+	public String getApelido() {
 		return apelido;
 	}
-	public void setApelidio(String apelido) {
+	public void setApelido(String apelido) {
 		this.apelido = apelido;
 	}
 
