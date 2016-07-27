@@ -1,16 +1,16 @@
 package br.edu.ifpb.pp;
 
 public class Videoconferencia extends Sala {
-	private String apelidio;
+	private String apelido;
 	public Videoconferencia() {
 		super();
 		
 	}
 	public String getApelidio() {
-		return apelidio;
+		return apelido;
 	}
-	public void setApelidio(String apelidio) {
-		this.apelidio = apelidio;
+	public void setApelidio(String apelido) {
+		this.apelido = apelido;
 	}
 	
 	
