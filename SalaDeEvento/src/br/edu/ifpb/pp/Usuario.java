@@ -1,42 +1,112 @@
 package br.edu.ifpb.pp;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Usuario {
 	
-	private List<Evento> eventos = new ArrayList<Evento>();
-	private List<Sala> salas = new ArrayList<Sala>();
+	private List<Evento> eventos;
+	private List<Sala> salas;
 	
 	//********* Adicionar e Remover Eventos *********//
-	
-	public void adicionarEventos(){
-		
+			
+	public Usuario() {
+		super();
+		this.eventos = new ArrayList<Evento>();
+		this.salas = new ArrayList<Sala>();
 	}
-		
-	public void removerEvento(){
-		
-	}
-	//********* Desalocar Evento *********//
 	
-	public void desalocarEvento(){
-		
+	public void adicionarEventos(Evento obj){
+		this.eventos.add(obj);
 	}
-	//********* Localizar  Evento *********//
+
+	public void removerEvento(Evento obj){
+		this.eventos.remove(obj);
+	}
 	
-	public void localizarEvento(){
-		/* O usuário pode localizar um evento escalonado através do nome, contato, data etc.*/
+	public Evento localizarEventoNome(String nome){
+		/* O usuï¿½rio pode localizar um evento escalonado atravï¿½s do nome, contato, data etc.*/
+		Evento e= null;
+		for (Evento evento : eventos) {
+			if(evento.getNome().equalsIgnoreCase(nome)){
+				e = evento;
+				break;
+			}
+		}
+		return e;
+	}
+	public Evento localizarEventoContato(String contato){
+		/* O usuï¿½rio pode localizar um evento escalonado atravï¿½s do nome, contato, data etc.*/
+		Evento e= null;
+		for (Evento evento : eventos) {
+			if(evento.getNomeContato().equalsIgnoreCase(contato)){
+				e = evento;
+				break;
+			}
+		}
+		return e;
+	}
+	public Evento localizarEventoDataInicio(Date data){
+		/* O usuï¿½rio pode localizar um evento escalonado atravï¿½s do nome, contato, data etc.*/
+		Evento e= null;
 		
+		Calendar dataConsultada = Calendar.getInstance();
+		dataConsultada.setTime(data);
+		dataConsultada.set(Calendar.HOUR,0);
+		dataConsultada.set(Calendar.MINUTE,0);
+		dataConsultada.set(Calendar.SECOND,0);
+		
+		for (Evento evento : eventos) {
+			
+			Calendar dataCorrente = Calendar.getInstance();
+			dataCorrente.setTime(evento.getDataInicio());
+			dataCorrente.set(Calendar.HOUR,0);
+			dataCorrente.set(Calendar.MINUTE,0);
+			dataCorrente.set(Calendar.SECOND,0);
+			
+			if(dataCorrente.getTimeInMillis() == dataConsultada.getTimeInMillis()){
+				e = evento;
+				break;
+			}
+		}
+		return e;
+	}
+	public Evento localizarEventoDataFim(Date data){
+		/* O usuï¿½rio pode localizar um evento escalonado atravï¿½s do nome, contato, data etc.*/
+		Evento e= null;
+		
+		Calendar dataConsultada = Calendar.getInstance();
+		dataConsultada.setTime(data);
+		dataConsultada.set(Calendar.HOUR,0);
+		dataConsultada.set(Calendar.MINUTE,0);
+		dataConsultada.set(Calendar.SECOND,0);
+		
+		for (Evento evento : eventos) {
+			
+			Calendar dataCorrente = Calendar.getInstance();
+			dataCorrente.setTime(evento.getDataFim());
+			dataCorrente.set(Calendar.HOUR,0);
+			dataCorrente.set(Calendar.MINUTE,0);
+			dataCorrente.set(Calendar.SECOND,0);
+			
+			if(dataCorrente.getTimeInMillis() == dataConsultada.getTimeInMillis()){
+				e = evento;
+				break;
+			}
+		}
+		return e;
 	}
 	
 	//********* Adicionar e Remover Salas *********//
 	
-	public void adicionarSalas(){
-		
+	public void adicionarSalas(Sala obj){
+		this.salas.add(obj);
 	}
 	
-	public void removerSalas(){
-		
+	public void removerSalas(Sala obj){
+		this.salas.remove(obj);
 	}
 	
 	
