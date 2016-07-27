@@ -49,11 +49,12 @@ public class AplicacaoConsole {
 				teclado.nextLine();
 				System.out.println("Vai se repetir?:(true,false)");
 				isRepetitivo = teclado.nextBoolean();
+				
 				if(isRepetitivo){
 					System.out.println("Qual o número de repetições?");
 					numRepeticoes = teclado.nextInt();
 				}
-				
+	
 				Evento e = new Evento(1,nome, dataInicio,dataFim, nomeContato, numRepeticoes, isRepetitivo);
 				usuario.adicionarEvento(e);
 				
