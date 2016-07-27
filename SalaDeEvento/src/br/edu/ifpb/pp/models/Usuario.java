@@ -2,7 +2,6 @@ package br.edu.ifpb.pp.models;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class Usuario {
@@ -125,6 +124,26 @@ public class Usuario {
 			}
 		}
 		return e;
+	}
+	
+	/**
+	 * @author sergio
+	 * Localiza uma sala pelo código
+	 */
+	public Sala localizarSala(String codSala) throws Exception{
+		ArrayList<Sala> list = new ArrayList<Sala>();
+		
+		try {
+			Sala s = null;
+			if(salas.contains(s.getIdentificacao())){
+				return s;
+			}
+			
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
+		
 	}
 	
 	//********* Adicionar e Remover Salas *********//
