@@ -20,6 +20,7 @@ public class usuarioFacade {
 		this.evento = evento;
 	}
 	/**
+	 * Método que simplifica a alocação de sala a um evento!
 	 * @author sergio
 	 * @param usuario
 	 * @param nomeEvento
@@ -31,11 +32,17 @@ public class usuarioFacade {
 		Evento e = usuario.localizarEventoNome(nomeEvento);
 		Sala s = usuario.localizarSala(codSala);
 		//usuario.localizarEventoNome(nomeEvento);
-		
-		if(usuario.localizarEventoNome(nomeEvento) != null && (usuario.localizarSala(codSala)) != null){
-			s.setEvento(e);
+		try {
+			if(usuario.localizarEventoNome(nomeEvento) != null && (usuario.localizarSala(codSala)) != null){
+				s.setEvento(e);
+			}
+			return true;
+
+		} catch (Exception e2) {
+			e2.getMessage();
+			return false;
 		}
-		return true;
+		
 	}
 
 }
