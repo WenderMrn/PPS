@@ -3,7 +3,7 @@ public class Panic implements SemaforoState{
 	
 	public SemaforoState tick() {
 		// TODO Auto-generated method stub
-		return this;
+		return status();
 	}
 
 	public SemaforoState status() {
@@ -13,7 +13,7 @@ public class Panic implements SemaforoState{
 
 	public SemaforoState panic() {
 		// TODO Auto-generated method stub
-		return this;
+		return status();
 	}
 
 	public SemaforoState on() {
@@ -23,7 +23,7 @@ public class Panic implements SemaforoState{
 
 	public SemaforoState off() {
 		// TODO Auto-generated method stub
-		return this;
+		return status();
 	}
 
 	public String toString() {
