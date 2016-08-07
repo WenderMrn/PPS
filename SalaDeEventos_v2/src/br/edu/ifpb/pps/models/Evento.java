@@ -12,7 +12,6 @@ public class Evento {
 	private boolean isRepetitivo;
 	
 	
-	
 	public Evento() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -63,7 +62,4 @@ public class Evento {
 	public void setRepetitivo(boolean isRepetitivo) {
 		this.isRepetitivo = isRepetitivo;
 	}
-	
-	
-
 }

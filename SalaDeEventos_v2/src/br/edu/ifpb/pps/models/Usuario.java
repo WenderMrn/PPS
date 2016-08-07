@@ -15,7 +15,6 @@ public class Usuario {
 	//********* Adicionar e Remover Eventos *********//
 			
 	public Usuario() {
-		super();
 		this.eventos = new ArrayList<Evento>();
 		this.salas = new ArrayList<ISala>();
 	}
@@ -23,6 +22,8 @@ public class Usuario {
 	public Usuario(String nome) {
 		super();
 		this.nome = nome;
+		this.eventos = new ArrayList<Evento>();
+		this.salas = new ArrayList<ISala>();
 	}
 
 
@@ -32,14 +33,6 @@ public class Usuario {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public List<ISala> getSalas() {
-		return salas;
-	}
-
-	public void setSalas(List<ISala> salas) {
-		this.salas = salas;
 	}
 
 	public void adicionarEvento(Evento obj){
