@@ -1,9 +1,9 @@
 package br.edu.ifpb.pps.facade;
 
-import br.edu.ifpb.pp.util.DateHelper;
 import br.edu.ifpb.pps.models.Evento;
 import br.edu.ifpb.pps.models.ISala;
 import br.edu.ifpb.pps.models.Usuario;
+import br.edu.ifpb.pps.util.DateHelper;
 
 public class UsuarioFacade {
 	private Usuario u;

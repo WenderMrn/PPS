@@ -1,4 +1,4 @@
-package br.edu.ifpb.pp.util;
+package br.edu.ifpb.pps.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
