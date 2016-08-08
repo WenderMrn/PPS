@@ -108,7 +108,7 @@ public class AplicacaoConsole {
 					if(!fa.adicionarSala(tipoSala, identificacaoSala, capacidadeSala))
 						System.out.println("Tipo de sala invalido!");
 					else
-						System.out.println("Sala removida!\n\n");
+						System.out.println("Sala adicionada!\n\n");
 				}
 				break;
 				case 4:
@@ -121,7 +121,7 @@ public class AplicacaoConsole {
 					if(!fa.removerSala(identificacaoSala)){
 						System.out.println("Sala não encontrada!");
 					}else{
-						System.out.println("Sala adicionada!");
+						System.out.println("Sala removida!");
 					}
 					
 				}
