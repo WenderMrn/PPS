@@ -15,18 +15,20 @@ public class Usuario {
 	//********* Adicionar e Remover Eventos *********//
 			
 	public Usuario() {
-		this.eventos = new ArrayList<Evento>();
-		this.salas = new ArrayList<ISala>();
+		init();
 	}
 	
 	public Usuario(String nome) {
 		super();
 		this.nome = nome;
+		init();
+	}
+	
+	private void init(){
 		this.eventos = new ArrayList<Evento>();
 		this.salas = new ArrayList<ISala>();
 	}
-
-
+	
 	public String getNome() {
 		return nome;
 	}
@@ -135,16 +137,12 @@ public class Usuario {
 	 * @author sergio
 	 * Localiza uma sala pelo código
 	 */
-	public ISala localizarSala(String codSala) throws Exception{
-		try {
-			for (ISala sala : this.salas) {
-				if(sala.getId().equalsIgnoreCase(codSala)) return sala;
-			}
-		} catch (Exception e) {
-			e.getMessage();
+	public ISala localizarSala(String codSala){
+		
+		for (ISala sala : this.salas) {
+			if(sala.getId().equalsIgnoreCase(codSala)) return sala;
 		}
 		return null;
-		
 	}
 	public ISala localizarSalaPorEvento(Evento obj){
 		/* O usu�rio pode localizar um evento escalonado atrav�s do nome, contato, data etc.*/
@@ -158,11 +156,18 @@ public class Usuario {
 	
 	//********* Adicionar e Remover Salas *********//
 	
-	public void adicionarSalas(ISala obj){
+	public void adicionarSala(ISala obj){
 		this.salas.add(obj);
 	}
 	
-	public void removerSalas(ISala obj){
+	public void removerSala(ISala obj){
 		this.salas.remove(obj);
+	}
+	
+	public List<ISala> getSalas(){
+		return this.salas;
+	}
+	public List<Evento> getEvetos(){
+		return this.eventos;
 	}
 }

@@ -30,6 +30,10 @@ public abstract class ISala {
 		this.evento = evento;
 	}
 	
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.getClass().getSimpleName()+"(ID: "+getId()+" - CAPACIDADE: "+getCapacidade()+" "+(getEvento()!=null?"- "+getEvento():"")+")";
+	}
 	
 }

@@ -1,5 +1,6 @@
 package br.edu.ifpb.pps.facade;
 
+import br.edu.ifpb.pps.factory.FabricaSala;
 import br.edu.ifpb.pps.models.Evento;
 import br.edu.ifpb.pps.models.ISala;
 import br.edu.ifpb.pps.models.Usuario;
@@ -9,7 +10,6 @@ public class UsuarioFacade {
 	private Usuario u;
 	
 	public UsuarioFacade(Usuario u){
-		System.out.println("Criando UsuarioFacede ");
 		this.u = u;
 	}
 	// adicionar evento
@@ -75,53 +75,78 @@ public class UsuarioFacade {
 	
 	//********* Adicionar e Remover Salas *********//
 	
-	public void adicionarSalas(ISala obj){
-		this.u.adicionarSalas(obj);
+	public void adicionarSala(ISala obj){
+		this.u.adicionarSala(obj);
 	}
 	
-	public void removerSalas(ISala obj){
-		this.u.removerSalas(obj);
+	public void removerSala(ISala obj){
+		this.u.removerSala(obj);
 	}
-	public boolean alocarEvento(String nomeEvento, String codSala) throws Exception{
+	public boolean removerSala(String identificacao){
+		ISala sala = this.u.localizarSala(identificacao);
+		if(sala==null){
+			return false;
+		}else{
+			this.u.removerSala(sala);
+			return true;
+		}
+			
+		
+	}
+	public boolean adicionarSala(String tipo,String id,int capacidade ){
+		FabricaSala fs = new FabricaSala();
+		ISala sala = fs.getSalaTipo(tipo);
+		if(sala==null){
+			return false;
+		}
+		sala.setCapacidade(capacidade);
+		sala.setId(id);
+		this.u.adicionarSala(sala);
+		return true;
+	}
+	public boolean alocarEvento(String nomeEvento, String codSala){
 		
 		Evento e = u.localizarEventoNome(nomeEvento);
 		ISala s = u.localizarSala(codSala);
 		
-		try {
-			if(u.localizarEventoNome(nomeEvento) != null && (u.localizarSala(codSala)) != null){
-				s.setEvento(e);
-				return true;
-			}
-			return false;
-			
-		} catch (Exception e2) {
-			e2.getMessage();
-			return false;
+		if(u.localizarEventoNome(nomeEvento) != null && (u.localizarSala(codSala)) != null){
+			s.setEvento(e);
+			return true;
 		}
-		
+		return false;
 	}
 	
-	public boolean desalocarEvento(String nomeEvento) throws Exception{
+	public boolean desalocarEvento(String nomeEvento){
 		
 		Evento e = u.localizarEventoNome(nomeEvento);
 		ISala s = null;
 		
-		try {
-			if(e != null){
-				s = u.localizarSalaPorEvento(e);
-				if(s != null){
-					s.setEvento(null);
-					return true;
-				}
+		if(e != null){
+			s = u.localizarSalaPorEvento(e);
+			if(s != null){
+				s.setEvento(null);
+				return true;
 			}
-			return false;
-			
-		} catch (Exception e2) {
-			e2.getMessage();
-			return false;
 		}
-		
+		return false;
 	}
+	
+	public void listarSalas(){
+		System.out.println("---------------------------------------");
+		for (ISala sala : this.u.getSalas()) {
+			System.out.println(sala);
+		}
+		System.out.println("---------------------------------------\n\n");
+	}
+	
+	public void listarEventos(){
+		System.out.println("---------------------------------------");
+		for (Evento evento : this.u.getEvetos()) {
+			System.out.println(evento);
+		}
+		System.out.println("---------------------------------------\n\n");
+	}
+	
 	
 	@Override
 	public String toString() {

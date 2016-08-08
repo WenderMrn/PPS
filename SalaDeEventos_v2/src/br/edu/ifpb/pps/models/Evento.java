@@ -62,4 +62,10 @@ public class Evento {
 	public void setRepetitivo(boolean isRepetitivo) {
 		this.isRepetitivo = isRepetitivo;
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "EVENTO(NOME: "+getNome()+")";
+	}
 }
