@@ -11,8 +11,6 @@ import br.edu.ifpb.pps.state.Repetitivo;
 public class Evento {
 	
 	private String nome;
-	private Calendar dataInicio;
-	private Calendar dataFim;
 	private String nomeContato;
 	private EventoState state;
 	
@@ -30,8 +28,6 @@ public class Evento {
 			String nomeContato, String dataInico, String dataFinal) {
 		super();
 		this.nome = nome;
-		this.dataInicio = dataInicio;
-		this.dataFim = dataFim;
 		this.nomeContato = nomeContato;
 		this.state = new NaoRepetitivo(dataInico, dataFinal);
 	}
@@ -40,8 +36,6 @@ public class Evento {
 			String nomeContato,List<DiasSemana> dias) {
 		super();
 		this.nome = nome;
-		this.dataInicio = dataInicio;
-		this.dataFim = dataFim;
 		this.nomeContato = nomeContato;
 		this.state = new Repetitivo(dias);
 	}
@@ -60,9 +54,6 @@ public class Evento {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Calendar getDataInicio() {
-		return dataInicio;
-	}
 	
 	public String getNomeContato() {
 		return nomeContato;
@@ -74,6 +65,6 @@ public class Evento {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "EVENTO(NOME: "+getNome()+" TIPO:"+this.state.getClass().getSimpleName()+")";
+		return "EVENTO(NOME: "+getNome()+" TIPO:"+this.state+")";
 	}
 }

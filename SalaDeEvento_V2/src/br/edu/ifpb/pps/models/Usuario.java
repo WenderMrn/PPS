@@ -94,7 +94,7 @@ public class Usuario {
 		for (Evento evento : eventos) {
 			
 			if(evento.getTipoEvento() instanceof NaoRepetitivo){
-				if(((NaoRepetitivo) evento.getTipoEvento()).getDataInico().equals(data))
+				if(((NaoRepetitivo) evento.getTipoEvento()).getDataInicio().equals(data))
 					e = evento;
 				
 				break;

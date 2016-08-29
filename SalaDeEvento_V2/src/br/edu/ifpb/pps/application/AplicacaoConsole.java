@@ -61,10 +61,9 @@ public class AplicacaoConsole {
 					isRepetitivo = ("true".equalsIgnoreCase(repete));
 						
 					if(isRepetitivo){
-						System.out.println("Qual os dias?(segunda,terça, etc.)");
+						System.out.println("Qual os dias?(segunda,terca, etc.)");
 						diasString = teclado.nextLine();
-						System.out.println(diasString.split("-", 2));
-						for (String retval: diasString.split("-", 2)){
+						for (String retval: diasString.split(",")){
 					      switch (retval) {
 							case "segunda":
 								dias.add(DiasSemana.segunda);
@@ -94,13 +93,13 @@ public class AplicacaoConsole {
 						fa.adicionarEvento(nome,nomeContato,dias);
 					
 					}else{
+						
 						System.out.println("Informe a data de Inicio: ");
 						dataInicio = teclado.next();
-						teclado.nextLine();
 						
 						System.out.println("Informe a data de Fim: ");
 						dataFim = teclado.next();
-						teclado.nextLine();
+						
 						
 						fa.adicionarEvento(nome,nomeContato,dataInicio,dataFim);
 					}

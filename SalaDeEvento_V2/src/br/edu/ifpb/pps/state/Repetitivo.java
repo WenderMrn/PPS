@@ -26,8 +26,7 @@ public class Repetitivo implements EventoState{
 	@Override
 	public EventoState status() {
 		// TODO Auto-generated method stub
-		System.out.println("Não Repetitivo");
-		System.out.println(dias);
+		System.out.println("Repetitivo");
 		return this;
 	}
 
@@ -38,5 +37,11 @@ public class Repetitivo implements EventoState{
 	public void setDias(List<DiasSemana> dias) {
 		this.dias = dias;
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Repetitivo - "+this.dias;
+	}	
 		
 }
