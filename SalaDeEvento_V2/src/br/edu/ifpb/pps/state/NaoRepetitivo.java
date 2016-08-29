@@ -4,21 +4,21 @@ import java.util.List;
 
 public class NaoRepetitivo implements EventoState{
 	
-	private String dataInico;
+	private String dataInicio;
 	private String dataFinal;
 	
 	public NaoRepetitivo(String dataInico,String dataFinal) {
 		// TODO Auto-generated constructor stub
-		this.dataFinal = dataInico;
+		this.dataInicio = dataInico;
 		this.dataFinal = dataFinal;
 	}
 	
 	@Override
-	public EventoState proximo(String dataInico, String dataFinal) {
+	public EventoState proximo(String dataInicio, String dataFinal) {
 		// TODO Auto-generated method stub
-		this.dataFinal = dataInico;
+		this.dataInicio = dataInicio;
 		this.dataFinal = dataFinal;
-		return new NaoRepetitivo(dataInico,dataFinal);
+		return new NaoRepetitivo(dataInicio,dataFinal);
 	}
 
 	@Override
@@ -31,16 +31,15 @@ public class NaoRepetitivo implements EventoState{
 	public EventoState status() {
 		// TODO Auto-generated method stub
 		System.out.println("Não Repetitivo");
-		System.out.println("Data Inicio: "+this.dataInico+" Date Final: "+this.dataFinal);
 		return this;
 	}
 
-	public String getDataInico() {
-		return dataInico;
+	public String getDataInicio() {
+		return dataInicio;
 	}
 
-	public void setDataInico(String dataInico) {
-		this.dataInico = dataInico;
+	public void setDataInicio(String dataInicio) {
+		this.dataInicio = dataInicio;
 	}
 
 	public String getDataFinal() {
@@ -49,6 +48,12 @@ public class NaoRepetitivo implements EventoState{
 
 	public void setDataFinal(String dataFinal) {
 		this.dataFinal = dataFinal;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Não Repetitivo - Data Inicio: "+this.dataInicio+" Data Final: "+this.dataFinal;
 	}
 	
 }
